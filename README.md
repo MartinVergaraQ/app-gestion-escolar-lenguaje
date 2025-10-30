@@ -14,12 +14,11 @@ La aplicación permite a los padres acceder a la información de sus hijos, como
 - Angular + Ionic Framework  
 - TypeScript  
 - HTML5 / SCSS  
-- Capacitor (para generar aplicación móvil)
 
 ### 🧠 Backend
 - Node.js con Express  
-- MongoDB (a través de modelos en JavaScript)
-- API RESTful (rutas separadas por módulo)
+- MongoDB 
+- API RESTful 
 
 ---
 
