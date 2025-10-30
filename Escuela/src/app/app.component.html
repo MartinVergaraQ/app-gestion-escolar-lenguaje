@@ -1,0 +1,59 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <!-- Contenido del menú (opcional) -->
+      <ion-menu-toggle autoHide="false">
+        <!-- Mostrar elementos de registro y login solo si el usuario no está autenticado -->
+        <ion-item *ngIf="!authService.isAuthenticated()" detail="true" [routerLink]="['/registro']" routerLinkActive="router-link">
+          <ion-label>
+            Registro
+          </ion-label>
+          <ion-icon name="people"></ion-icon>
+        </ion-item>
+        <ion-item *ngIf="!authService.isAuthenticated()" detail="true" [routerLink]="['/login']" routerLinkActive="router-link">
+          <ion-label>
+            Login
+          </ion-label>
+          <ion-icon name="people-circle"></ion-icon>
+        </ion-item>
+
+        <!-- Mostrar elementos de registro de estudiante, asistencia y lista de estudiantes solo si el usuario está autenticado -->
+        <ion-item *ngIf="authService.isAuthenticated()" detail="true" [routerLink]="['/estudiantes']" routerLinkActive="router-link">
+          <ion-label>
+            Registro de estudiante
+          </ion-label>
+          <ion-icon name="people"></ion-icon>
+        </ion-item>
+        <ion-item *ngIf="authService.isAuthenticated()" detail="true" [routerLink]="['/asistencia']" routerLinkActive="router-link">
+          <ion-label>
+            Asistencia
+          </ion-label>
+          <ion-icon name="people-circle"></ion-icon>
+        </ion-item>
+        <ion-item *ngIf="authService.isAuthenticated()" detail="true" [routerLink]="['/lista-estudiante']" routerLinkActive="router-link">
+          <ion-label>
+            Lista Estudiante
+          </ion-label>
+          <ion-icon name="people-circle"></ion-icon>
+        </ion-item>
+        
+        <ion-item *ngIf="authService.isAuthenticated()" detail="true" [routerLink]="['/salida-estudiante']" routerLinkActive="router-link">
+          <ion-label>
+            Salida Estudiante
+          </ion-label>
+          <ion-icon name="people-circle"></ion-icon>
+        </ion-item>
+        
+
+        <!-- Botón "Salir" para cerrar sesión -->
+        <ion-item *ngIf="authService.isAuthenticated()" (click)="logout()">
+          <ion-label>
+            Salir
+          </ion-label>
+          <ion-icon name="log-out"></ion-icon>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
